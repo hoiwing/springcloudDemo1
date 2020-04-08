@@ -4,10 +4,7 @@ import com.chenma.springcloud.entities.CommonResult;
 import com.chenma.springcloud.entities.Payment;
 import com.chenma.springcloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -16,13 +13,15 @@ import javax.annotation.Resource;
  * Create at: 2020-04-07 17:00:06
  * Description:
  */
-@Controller
+
 @Slf4j
+@RestController //和 Controller 区别
+@RequestMapping("/payment")
 public class PaymentController {
     @Resource
     private PaymentService paymentService;
 
-    @PostMapping(value = "/payment/create")
+    @PostMapping("/create")
     public CommonResult create(Payment payment) {
         int result = paymentService.create(payment);
         if (result > 0) {
@@ -32,15 +31,15 @@ public class PaymentController {
         }
     }
 
-    @GetMapping(value = "/payment/get/{id}")
-    public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id) {
+    @GetMapping("/get/{id}")
+    public CommonResult<Payment> findOnePaymentById(@PathVariable("id") Long id) {
 
         log.info("查询数据"+ id);
         Payment payment = paymentService.getPaymentById(id);
         log.info("paymentg" + payment);
         if (payment != null) {
             CommonResult<Payment> result = new CommonResult<>(200, "查询成功！", payment);
-            log.info(result.toString());
+            log.info("result: " + result);
             return result;
         } else {
             log.info("没有存");

@@ -1,4 +1,4 @@
-package com.chenma.springcloud.entities;
+package com.chenma.springcloud.entites;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,7 +8,7 @@ import java.io.Serializable;
 
 /**
  * Author: hoiwing
- * Create at: 2020-04-07 16:43:43
+ * Create at: 2020-04-08 11:34:43
  * Description:
  */
 @Data
