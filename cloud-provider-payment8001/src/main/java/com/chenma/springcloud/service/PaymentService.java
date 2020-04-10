@@ -2,7 +2,6 @@ package com.chenma.springcloud.service;
 
 import com.chenma.springcloud.entities.Payment;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.stereotype.Service;
 
 /**
  * Author: hoiwing

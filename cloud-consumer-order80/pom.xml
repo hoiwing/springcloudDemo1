@@ -13,6 +13,13 @@
 
 
     <dependencies>
+        <!-- 导入自己定义的api通用包，可以使用Payment支付的Entity -->
+        <dependency>
+            <groupId>com.chenma.spring</groupId>
+            <artifactId>cloud-api-commons</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
